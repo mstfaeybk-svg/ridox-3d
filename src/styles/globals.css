@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ridox-white text-ridox-dark dark:bg-ridox-dark dark:text-ridox-white transition-colors duration-300;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold leading-tight;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h3 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h4 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply text-lg leading-relaxed text-ridox-gray dark:text-gray-400;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-ridox-green text-ridox-white rounded-lg font-semibold hover:bg-ridox-green-light transition-all duration-200 shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent border-2 border-ridox-green text-ridox-green rounded-lg font-semibold hover:bg-ridox-green hover:text-ridox-white transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 border border-ridox-border dark:border-ridox-border-dark text-ridox-dark dark:text-ridox-white rounded-lg font-semibold hover:bg-ridox-border dark:hover:bg-ridox-border-dark transition-all duration-200;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 dark:bg-white/5 border border-white/20 dark:border-white/10;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-ridox-green to-ridox-green-light bg-clip-text text-transparent;
+  }
+
+  .section {
+    @apply py-20 md:py-32 lg:py-40;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-display font-bold mb-6 leading-tight;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .safe-area-padding {
+    padding-top: max(env(safe-area-inset-top), 1rem);
+    padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+    padding-left: max(env(safe-area-inset-left), 1rem);
+    padding-right: max(env(safe-area-inset-right), 1rem);
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default focus outline and add custom */
+:focus-visible {
+  @apply outline-none ring-2 ring-ridox-green ring-offset-2 dark:ring-offset-ridox-dark;
+}
+
+/* Selection color */
+::selection {
+  @apply bg-ridox-green text-ridox-white;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-ridox-border dark:bg-ridox-border-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-ridox-green-light rounded-full hover:bg-ridox-green;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(58, 111, 99, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(58, 111, 99, 0.5);
+  }
+}
